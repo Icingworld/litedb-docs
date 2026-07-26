@@ -1,6 +1,6 @@
 # 关于 LiteDB
 
-* [关于 LiteDB](README.md)
+* [关于 LiteDB](about/README.md)
 
     * [设计目标](about/design_goals/README.md)
 
