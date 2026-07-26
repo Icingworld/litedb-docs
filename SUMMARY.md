@@ -30,25 +30,55 @@
 
     * [DDL 语句](sql/ddl/README.md)
 
-        * [数据库](sql/ddl/database/README.md)
+        * [数据库管理](sql/ddl/database/README.md)
 
-        * [集合](sql/ddl/collection/README.md)
+            * [USE](sql/ddl/database/use/README.md)
+
+            * [CREATE DATABASE](sql/ddl/database/create_database/README.md)
+
+            * [DROP DATABASE](sql/ddl/database/drop_database/README.md)
+
+            * [SHOW DATABASES](sql/ddl/database/show_databases/README.md)
+
+        * [集合管理](sql/ddl/collection/README.md)
+
+            * [CREATE COLLECTION](sql/ddl/collection/create_collection/README.md)
+
+            * [DROP COLLECTION](sql/ddl/collection/drop_collection/README.md)
+
+            * [SHOW COLLECTIONS](sql/ddl/collection/show_collections/README.md)
+
+            * [DESCRIBE](sql/ddl/collection/describe/README.md)
 
         * [标量索引](sql/ddl/scalar_index/README.md)
 
+            * [CREATE INDEX](sql/ddl/scalar_index/create_index/README.md)
+
+            * [DROP INDEX](sql/ddl/scalar_index/drop_index/README.md)
+
+            * [SHOW INDEXES](sql/ddl/scalar_index/show_indexes/README.md)
+
         * [向量索引](sql/ddl/vector_index/README.md)
+
+            * [CREATE VINDEX](sql/ddl/vector_index/create_vindex/README.md)
+
+            * [DROP VINDEX](sql/ddl/vector_index/drop_vindex/README.md)
+
+            * [SHOW VINDEXES](sql/ddl/vector_index/show_vindexes/README.md)
 
     * [DML 语句](sql/dml/README.md)
 
-        * [插入](sql/dml/insert/README.md)
+        * [INSERT](sql/dml/insert/README.md)
 
-        * [更新](sql/dml/update/README.md)
+        * [UPDATE](sql/dml/update/README.md)
 
-        * [删除](sql/dml/delete/README.md)
+        * [DELETE](sql/dml/delete/README.md)
 
     * [DQL 语句](sql/dql/README.md)
 
-        * [查询](sql/dql/query/README.md)
+        * [SELECT](sql/dql/select/README.md)
+
+    * [表达式](sql/expressions/README.md)
 
 # 架构与设计
 
