@@ -28,6 +28,14 @@
 
     * [数据类型](sql/data_types/README.md)
 
+        * [数据类型总览](sql/data_types/overview/README.md)
+
+        * [VARCHAR(n)](sql/data_types/varchar/README.md)
+
+        * [BOOLEAN](sql/data_types/boolean/README.md)
+
+        * [VECTOR(n)](sql/data_types/vector/README.md)
+
     * [DDL 语句](sql/ddl/README.md)
 
         * [数据库管理](sql/ddl/database/README.md)
