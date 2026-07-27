@@ -96,6 +96,12 @@
 
     * [元数据](architecture_and_design/metadata/README.md)
 
+        * [总览](architecture_and_design/metadata/overview/README.md)
+
+        * [元数据引擎](architecture_and_design/metadata/metadata_engine/README.md)
+
+        * [元数据存储](architecture_and_design/metadata/metadata_storage/README.md)
+
     * [数据模型](architecture_and_design/data_model/README.md)
 
     * [SQL 处理流水线](architecture_and_design/sql_processing_pipeline/README.md)

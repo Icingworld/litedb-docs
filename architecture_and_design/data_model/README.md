@@ -46,11 +46,9 @@ flowchart TB
 | `columns` | 按列序排列的 `ColumnSchema` |
 | `comment` | 可选的集合说明 |
 
-名称用于 SQL 和用户展示，内部 ID 用于关联 Catalog、记录文件和索引。重命名等元数据
-操作不应依赖名称作为物理对象标识。
+名称用于 SQL 和用户展示，内部 ID 用于关联 Catalog、记录文件和索引。重命名等元数据操作不应依赖名称作为物理对象标识。
 
-Schema 中的列是有序的。记录本身存储的是值序列，第 `i` 个值对应
-`columns[i]`，因此列序号不仅用于展示，也参与记录校验、编码和解码。
+Schema 中的列是有序的。记录本身存储的是值序列，第 `i` 个值对应 `columns[i]`，因此列序号不仅用于展示，也参与记录校验、编码和解码。
 
 ## ColumnSchema
 
@@ -68,8 +66,7 @@ Schema 中的列是有序的。记录本身存储的是值序列，第 `i` 个�
 | `default_expression` | 插入时可使用的默认值表达式 |
 | `comment` | 可选的列说明 |
 
-`column_id` 表示列的身份，`ordinal` 表示列在记录布局中的位置，两者用途不同。
-执行名称绑定时可以按列名查找列；存储记录时则按照 `ordinal` 对齐值与列定义。
+`column_id` 表示列的身份，`ordinal` 表示列在记录布局中的位置，两者用途不同。执行名称绑定时可以按列名查找列；存储记录时则按照 `ordinal` 对齐值与列定义。
 
 ## 逻辑类型
 
@@ -85,8 +82,7 @@ Schema 使用逻辑类型描述 SQL 层看到的数据含义。当前支持以�
 | `VARCHAR(n)` | 最大长度 `n` | 字符串 |
 | `VECTOR(n)` | 固定维度 `n` | 浮点向量 |
 
-内部类型系统还包含 `NULL`，用于表达式绑定和空值传播；`NULL` 不是创建普通列时使用的
-独立列类型。
+内部类型系统还包含 `NULL`，用于表达式绑定和空值传播；`NULL` 不是创建普通列时使用的独立列类型。
 
 `VARCHAR` 和 `VECTOR` 的参数必须为正数。写入记录时：
 
@@ -100,8 +96,7 @@ Schema 使用逻辑类型描述 SQL 层看到的数据含义。当前支持以�
 
 ### NULL 与 NOT NULL
 
-`nullable` 决定一列是否接受 `NULL`。插入语句没有为某列提供值时，LiteDB 按以下顺序
-处理：
+`nullable` 决定一列是否接受 `NULL`。插入语句没有为某列提供值时，LiteDB 按以下顺序处理：
 
 1. 如果该列定义了默认值，使用默认值；
 2. 否则，如果该列允许为空，填入 `NULL`；
@@ -111,15 +106,13 @@ Schema 使用逻辑类型描述 SQL 层看到的数据含义。当前支持以�
 
 ### 默认值
 
-Schema 保存的是可持久化的默认值表达式，而不是 Parser 生成的 AST 节点。当前默认值
-可以表示：
+Schema 保存的是可持久化的默认值表达式，而不是 Parser 生成的 AST 节点。当前默认值可以表示：
 
 - `NULL`；
 - 布尔、整数、浮点数和字符串字面量；
 - 由数值字面量组成的向量。
 
-创建集合时，Binder 会检查默认值能否转换为目标列类型；执行 `INSERT` 时，再从
-Schema 恢复并求值该默认表达式。
+创建集合时，Binder 会检查默认值能否转换为目标列类型；执行 `INSERT` 时，再从 Schema 恢复并求值该默认表达式。
 
 ### UNIQUE
 
@@ -127,8 +120,7 @@ Schema 恢复并求值该默认表达式。
 
 ## Schema 的来源
 
-Catalog 是数据库结构定义的权威来源。`CollectionSchema` 不单独持久化为第二份
-Catalog，而是在打开或重载集合时由 Catalog 条目派生：
+Catalog 是数据库结构定义的权威来源。`CollectionSchema` 不单独持久化为第二份 Catalog，而是在打开或重载集合时由 Catalog 条目派生：
 
 ```mermaid
 flowchart LR
@@ -141,17 +133,14 @@ flowchart LR
     Catalog --> Loader --> Schema --> Storage --> Validate
 ```
 
-Schema Loader 首先找到集合及所属数据库，然后按 Catalog 返回的列顺序构造
-`ColumnSchema`，并为每列分配对应的 `ordinal`。
+Schema Loader 首先找到集合及所属数据库，然后按 Catalog 返回的列顺序构造 `ColumnSchema`，并为每列分配对应的 `ordinal`。
 
-`StorageEngine` 在每个 `CollectionState` 中按值持有 `CollectionSchema`。这样做有两个
-作用：
+`StorageEngine` 在每个 `CollectionState` 中按值持有 `CollectionSchema`。这样做有两个作用：
 
 - 存储操作不依赖可能因 Catalog 更新而失效的条目指针；
 - 一次记录操作始终面对一份稳定、完整的行布局。
 
-当 DDL 提交改变 Catalog 后，相关运行时对象会在事务发布阶段重新加载，使新的 Schema
-和新的持久化状态一起生效。
+当 DDL 提交改变 Catalog 后，相关运行时对象会在事务发布阶段重新加载，使新的 Schema 和新的持久化状态一起生效。
 
 ## Schema 与 Catalog 的边界
 
@@ -164,9 +153,7 @@ Schema 是 Catalog 的运行时投影，但两者不是同一个概念：
 | 包含集合、列和索引条目 | 包含集合信息和有序列定义 |
 | 参与 DDL 和持久化 | 服务于绑定、校验、编解码和运行时访问 |
 
-标量索引和向量索引不属于 `CollectionSchema`。它们具有自己的 ID、名称、目标列和
-算法参数，并由 Catalog 中的 `IndexEntry`、`VectorIndexEntry` 以及对应索引引擎管理。
-优化器需要索引信息时直接查询 Catalog，而不是从行布局中反向推导。
+标量索引和向量索引不属于 `CollectionSchema`。它们具有自己的 ID、名称、目标列和算法参数，并由 Catalog 中的 `IndexEntry`、`VectorIndexEntry` 以及对应索引引擎管理。优化器需要索引信息时直接查询 Catalog，而不是从行布局中反向推导。
 
 保持这一边界可以避免以下问题：
 
@@ -187,8 +174,7 @@ Schema 是 Catalog 的运行时投影，但两者不是同一个概念：
 6. 向量维度必须等于 `VECTOR(n)` 的维度；
 7. 编码后的整条记录必须能容纳在存储页允许的记录空间内。
 
-Binder 的类型检查负责尽早向用户报告 SQL 语义错误，StorageEngine 的校验则构成写入
-持久化格式前的最后一道结构边界。二者职责互补，不能只依赖其中一层。
+Binder 的类型检查负责尽早向用户报告 SQL 语义错误，StorageEngine 的校验则构成写入持久化格式前的最后一道结构边界。二者职责互补，不能只依赖其中一层。
 
 ## 示例
 
@@ -212,8 +198,7 @@ CREATE COLLECTION documents (
 | 2 | `published` | `BOOLEAN` | 是 | `false` |
 | 3 | `embedding` | `VECTOR(384)` | 是 | 无 |
 
-例如只提供 `id` 和 `title` 时，`published` 使用默认值 `false`，`embedding` 填入
-`NULL`；如果提供的向量不是 384 维，语句会在类型绑定或写入校验阶段被拒绝。
+例如只提供 `id` 和 `title` 时，`published` 使用默认值 `false`，`embedding` 填入 `NULL`；如果提供的向量不是 384 维，语句会在类型绑定或写入校验阶段被拒绝。
 
 ## 当前边界
 
