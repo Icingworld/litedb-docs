@@ -106,6 +106,8 @@
 
     * [SQL 处理流水线](architecture_and_design/sql_processing_pipeline/README.md)
 
+        * [总览](architecture_and_design/sql_processing_pipeline/overview/README.md)
+
         * [解析器](architecture_and_design/sql_processing_pipeline/parser/README.md)
 
         * [绑定器](architecture_and_design/sql_processing_pipeline/binder/README.md)
