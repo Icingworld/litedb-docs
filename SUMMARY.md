@@ -138,11 +138,51 @@
 
     * [存储引擎](architecture_and_design/storage_engine/README.md)
 
+        * [总览](architecture_and_design/storage_engine/overview/README.md)
+
+        * [存储引擎](architecture_and_design/storage_engine/storage_engine/README.md)
+
+        * [记录与页面](architecture_and_design/storage_engine/records_and_pages/README.md)
+
+        * [存储文件格式](architecture_and_design/storage_engine/file_format/README.md)
+
     * [标量索引](architecture_and_design/scalar_index/README.md)
+
+        * [总览](architecture_and_design/scalar_index/overview/README.md)
+
+        * [索引引擎](architecture_and_design/scalar_index/index_engine/README.md)
+
+        * [键与约束](architecture_and_design/scalar_index/keys_and_constraints/README.md)
+
+        * [B+ 树实现](architecture_and_design/scalar_index/btree/README.md)
+
+        * [标量索引文件格式](architecture_and_design/scalar_index/file_format/README.md)
 
     * [向量索引](architecture_and_design/vector_index/README.md)
 
+        * [总览](architecture_and_design/vector_index/overview/README.md)
+
+        * [向量索引引擎](architecture_and_design/vector_index/vector_index_engine/README.md)
+
+        * [向量键、距离与精确扫描](architecture_and_design/vector_index/distance_and_flat/README.md)
+
+        * [HNSW 图索引](architecture_and_design/vector_index/hnsw/README.md)
+
+        * [持久化、恢复与压缩](architecture_and_design/vector_index/persistence_and_recovery/README.md)
+
     * [事务与恢复](architecture_and_design/transaction_and_recovery/README.md)
+
+        * [总览](architecture_and_design/transaction_and_recovery/overview/README.md)
+
+        * [事务模型与暂存](architecture_and_design/transaction_and_recovery/model_and_staging/README.md)
+
+        * [提交协议](architecture_and_design/transaction_and_recovery/commit_protocol/README.md)
+
+        * [WAL 格式与文件写入](architecture_and_design/transaction_and_recovery/wal/README.md)
+
+        * [崩溃恢复](architecture_and_design/transaction_and_recovery/recovery/README.md)
+
+        * [Checkpoint](architecture_and_design/transaction_and_recovery/checkpoint/README.md)
 
     * [文件系统与 IO](architecture_and_design/file_system_and_io/README.md)
 
