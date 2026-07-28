@@ -130,6 +130,12 @@
 
     * [函数系统](architecture_and_design/function_system/README.md)
 
+        * [总览](architecture_and_design/function_system/overview/README.md)
+
+        * [函数模型、注册与绑定](architecture_and_design/function_system/registry_and_binding/README.md)
+
+        * [内置向量函数](architecture_and_design/function_system/vector_functions/README.md)
+
     * [存储引擎](architecture_and_design/storage_engine/README.md)
 
     * [标量索引](architecture_and_design/scalar_index/README.md)
