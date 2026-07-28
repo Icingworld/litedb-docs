@@ -122,6 +122,12 @@
 
     * [表达式求值](architecture_and_design/expression_evaluation/README.md)
 
+        * [总览](architecture_and_design/expression_evaluation/overview/README.md)
+
+        * [求值器与执行流程](architecture_and_design/expression_evaluation/evaluator/README.md)
+
+        * [求值语义](architecture_and_design/expression_evaluation/semantics/README.md)
+
     * [函数系统](architecture_and_design/function_system/README.md)
 
     * [存储引擎](architecture_and_design/storage_engine/README.md)
