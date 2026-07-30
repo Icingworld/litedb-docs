@@ -23,7 +23,7 @@ flowchart LR
 | `ParserWorker` | 根据语句首 Token 选择具体解析路径 |
 | 语句 Worker | 解析 SELECT、INSERT、CREATE 等语句结构 |
 | `ParserExpressionWorker` | 按优先级解析一元、二元和复合表达式 |
-| AST | 按所有权组织完整语法结构并保留源码位置 |
+| `AST` | 按所有权组织完整语法结构并保留源码位置 |
 
 顶层 `Parser` 只持有 SQL 文本和 Lexer，并把实际工作交给 `ParserWorker`。语句级 Worker 将不同语法拆开，避免单个解析函数承担所有 SQL 分支。
 
